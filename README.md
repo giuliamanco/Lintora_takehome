@@ -22,7 +22,7 @@ To set up and run this project locally, follow these steps:
 ### 1. Clone the Repository
 Clone or download this repository to your local computer:
 ```bash
-git clone 
+git clone https://github.com/giuliamanco/Lintora_takehome.git
 cd Lintora_takehome
 ```
 
