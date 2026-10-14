@@ -4,7 +4,7 @@ This repository contains the project source code, scripts, and pre-generated vis
 
 ## Repository Structure
 
-The project is organized as follows:
+```text
 └── Lintora_takehome/
     ├── product/
     │   └── [Dataset files will be placed here (e.g., events.csv, users.csv)]
@@ -12,6 +12,7 @@ The project is organized as follows:
     │   └── [Pre-generated project plots and visualization charts]
     ├── analysis.py
     └── Classificator.py
+```
 
 ---
 
