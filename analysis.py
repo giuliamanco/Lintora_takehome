@@ -17,7 +17,7 @@ SELECT
     (DATE_TRUNC('month', created_at)+ INTERVAL 1 MONTH - INTERVAL 1 DAY)::DATE AS month,
     COUNT(DISTINCT a.account_id) AS account_started,
     COUNT(DISTINCT s.account_id) AS subscription_started,
-    COUNT(s.account_id) * 100.0 /COUNT(a.account_id) AS ratio
+    COUNT(DISTINCT s.account_id) * 100.0 /COUNT( DISTINCT a.account_id) AS ratio
 FROM 'product/accounts.csv' a
 LEFT JOIN 'product/subscriptions.csv' s ON a.account_id = s.account_id
 GROUP BY month 
@@ -62,7 +62,7 @@ SELECT
     (DATE_TRUNC('month', created_at)+ INTERVAL 1 MONTH - INTERVAL 1 DAY)::DATE AS month,
     COUNT(DISTINCT a.account_id) AS account_started_social,
     COUNT(DISTINCT s.account_id) AS subscription_started_social,
-    subscription_started_social * 100.0 /account_started_social AS conversion_rate_social
+    COUNT(DISTINCT s.account_id) * 100.0 / COUNT(DISTINCT a.account_id) AS conversion_rate_social
 FROM 'product/accounts.csv' a
 LEFT JOIN 'product/subscriptions.csv' s ON a.account_id = s.account_id 
 WHERE a.acquisition_channel = 'paid_social'
